@@ -559,3 +559,27 @@ def get_categories(doctype, filters):
 			categoryOptions.append({"label": category, "value": category})
 
 	return categoryOptions
+
+@frappe.whitelist(allow_guest=True)
+def get_sacco_ranking(*args,**kwargs):
+    # Query to get sacco_name and the number of completions
+    query = """
+        SELECT 
+            u.sacco_name, 
+            c.course, 
+            COUNT(*) as num_completions
+        FROM 
+            `tabLMS Course Progress` c
+        INNER JOIN 
+            `tabUser` u 
+        ON 
+            c.member = u.name 
+        WHERE 
+            c.status = 'Complete'
+        GROUP BY 
+            u.sacco_name, c.course
+        ORDER BY 
+            num_completions DESC
+        """
+    results = frappe.db.sql(query, as_dict=True)
+    return results

@@ -100,7 +100,10 @@ doc_events = {
 	"*": {
 		"on_change": [
 			"lms.lms.doctype.lms_badge.lms_badge.process_badges",
-		]
+		],
+		"on_update": "lms.lms.api.get_sacco_ranking",
+       		"on_cancel": "lms.lms.api.get_sacco_ranking",
+        	"on_trash": "lms.lms.api.get_sacco_ranking"
 	},
 	"Discussion Reply": {"after_insert": "lms.lms.utils.handle_notifications"},
 	"Notification Log": {"on_change": "lms.lms.utils.publish_notifications"},

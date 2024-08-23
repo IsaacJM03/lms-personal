@@ -93,8 +93,7 @@
   {
    "fieldname": "image",
    "fieldtype": "Attach Image",
-   "label": "Preview Image",
-   "reqd": 1
+   "label": "Preview Image"
   },
   {
    "fieldname": "tags",
@@ -119,8 +118,7 @@
    "in_standard_filter": 1,
    "label": "Instructors",
    "max_height": "50px",
-   "options": "Course Instructor",
-   "reqd": 1
+   "options": "Course Instructor"
   },
   {
    "fieldname": "section_break_7",
@@ -263,7 +261,7 @@
   }
  ],
  "make_attachments_public": 1,
- "modified": "2024-07-12 13:54:40.474097",
+ "modified": "2024-08-20 10:12:29.187054",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Course",
@@ -292,6 +290,15 @@
    "role": "Course Creator",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,

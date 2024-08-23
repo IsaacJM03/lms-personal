@@ -185,7 +185,7 @@ def get_palette(full_name):
 
 
 @frappe.whitelist(allow_guest=True)
-def sign_up(email, full_name, verify_terms, user_category):
+def sign_up(email, full_name, verify_terms, user_category,sacco_name):
 	if is_signup_disabled():
 		frappe.throw(_("Sign Up is disabled"), _("Not Allowed"))
 
@@ -209,6 +209,7 @@ def sign_up(email, full_name, verify_terms, user_category):
 		{
 			"doctype": "User",
 			"email": email,
+                        "sacco_name":sacco_name,
 			"first_name": escape_html(full_name),
 			"verify_terms": verify_terms,
 			"user_category": user_category,
@@ -303,7 +304,7 @@ def get_user_details(users):
 		details = frappe.db.get_value(
 			"User",
 			user,
-			["name", "username", "full_name", "user_image", "headline", "looking_for_job"],
+			["name", "username", "full_name","sacco_name", "user_image", "headline", "looking_for_job"],
 			as_dict=True,
 		)
 		user_details.append(Widgets().MemberCard(member=details, avatar_class="avatar-large"))

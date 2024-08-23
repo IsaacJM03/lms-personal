@@ -10,13 +10,15 @@
  "engine": "InnoDB",
  "field_order": [
   "published",
+  "allow_self_enrollment",
   "title",
+  "sacco_name",
+  "column_break_ridx",
   "start_date",
   "end_date",
-  "column_break_4",
-  "allow_self_enrollment",
   "start_time",
   "end_time",
+  "column_break_4",
   "timezone",
   "section_break_rgfj",
   "medium",
@@ -324,11 +326,28 @@
   {
    "fieldname": "section_break_khcn",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sacco_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Sacco Name",
+   "length": 255,
+   "link_filters": "{\n    \"filters\": [\n        [\"sacco_name\", \"=\", \"Batch.sacco_name\"]\n    ]\n}",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ridx",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-18 18:06:37.229885",
+ "modified": "2024-08-09 10:38:54.519880",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "LMS Batch",
